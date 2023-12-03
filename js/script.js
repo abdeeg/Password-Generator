@@ -90,6 +90,10 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var selectSpecial = specialCharacters
+  var selectNumeric = numericCharacters
+  var selectLower = lowerCasedCharacters
+  var selectUpper = upperCasedCharacters
 
 }
 
