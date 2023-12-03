@@ -93,15 +93,25 @@ function getPasswordOptions() {
 
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-}
-
-// Function to generate password with user input
+// Below I've created a function that adds my arrays into 'newArray'.
+// I've then used.join to add my own separator which is black because I was having issues with my password generation being full of commas.
+// My new array now being a string, it runs a for loop and selects random elements from my new array up to 40 characters. 
 function generatePassword() {
+  let pass = '';
+  var newArray = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+  let str = newArray.join("")
 
+  for (let i = 1; i <= 40; i++) {
+      let char = Math.floor(Math.random()
+          * str.length + 1);
+
+      pass += str.charAt(char)
+  }
+
+  return pass;
 }
+
+console.log(generatePassword());
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
