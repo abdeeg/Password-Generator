@@ -89,17 +89,20 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-function getPasswordOptions() {
-  var selectSpecial = specialCharacters
-  var selectNumeric = numericCharacters
-  var selectLower = lowerCasedCharacters
-  var selectUpper = upperCasedCharacters
 
-}
+function getPasswordOptions() {
+  if (document.getElementById("include1").checked) 
+  console.log("checked");
+else 
+  console.log("not checked");
+} 
+
+console.log(getPasswordOptions());
 
 // Below I've created a function that adds my arrays into 'newArray'.
 // I've then used.join to add my own separator which is black because I was having issues with my password generation being full of commas.
 // My new array now being a string, it runs a for loop and selects random elements from my new array up to 40 characters. 
+
 function generatePassword() {
   let pass = '';
   var newArray = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
