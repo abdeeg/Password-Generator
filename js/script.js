@@ -91,13 +91,18 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 
 function getPasswordOptions() {
-  if (document.getElementById("include1").checked) 
-  console.log("checked");
-else 
-  console.log("not checked");
+  if (document.getElementById("include1").checked) {
+  var selectedLower = lowerCasedCharacters;
+console.log(selectedLower);
+}
+else {
+  var notSelectedLower = "";
+console.log(notSelectedLower);
+}
 } 
 
 console.log(getPasswordOptions());
+
 
 // Below I've created a function that adds my arrays into 'newArray'.
 // I've then used.join to add my own separator which is black because I was having issues with my password generation being full of commas.
