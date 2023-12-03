@@ -88,16 +88,19 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-
 function getPasswordOptions() {
+  
   if (document.getElementById("include1").checked) {
-  var selectedLower = lowerCasedCharacters;
-console.log(selectedLower);
+  var includeLower = lowerCasedCharacters;
 }
-else {
-  var notSelectedLower = "";
-console.log(notSelectedLower);
+if (document.getElementById("include2").checked) {
+  var includeUpper = upperCasedCharacters;
+}
+if (document.getElementById("include3").checked) {
+  var includeNumeric = numericCharacters;
+}
+if (document.getElementById("include4").checked) {
+  var includeSpecial = specialCharacters;
 }
 } 
 
@@ -109,8 +112,24 @@ console.log(getPasswordOptions());
 // My new array now being a string, it runs a for loop and selects random elements from my new array up to 40 characters. 
 
 function generatePassword() {
-  let pass = '';
-  var newArray = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
+  var selectedLower = getPasswordOptions.includeLower;
+  var selectedUpper = getPasswordOptions.includeUpper;
+  var selectedNumeric = getPasswordOptions.includeNumeric;
+  var selectedSpecial = getPasswordOptions.includeSpecial;
+  var pass = '';
+  var newArray = [];
+  if (selectedLower) {
+    newArray = newArray.concat(lowerCasedCharacters)
+  }
+  if (selectedUpper) {
+    newArray = newArray.concat(upperCasedCharacters)
+  }
+  if (selectedNumeric) {
+    newArray = newArray.concat(numericCharacters)
+  }
+  if (selectedSpecial) {
+    newArray = newArray.concat(specialCharacters)
+  };
   let str = newArray.join("")
 
   for (let i = 1; i <= 40; i++) {
