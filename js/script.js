@@ -88,37 +88,26 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-function getPasswordOptions() {
-  if (document.getElementById("include1").checked) {
-  var includeLower = lowerCasedCharacters;
+/* The function below sets the minimum and maximum characters for the password generator (nothing below 7 and no more than 50) */
+function generate(){
+  var passwordLength = parseFloat(document.getElementById('txtPasswordLength').value);
+  
+  var password="";
+if(!isNaN(passwordLength))
+  { 
+      if(passwordLength < 7 || passwordLength > 50)
+      {
+          document.getElementById("error").style.display = "block";
+          document.getElementById('txtPassword').value = "";
+      } else {
+          document.getElementById("error").style.display = "none";
+          password = getPassword(passwordLength);
+          document.getElementById('txtPassword').value = password;
+      }
+  }
 }
-else {
-  var includeLower = "";
-}
-}
-/* if (document.getElementById("include2").checked) {
-  var includeUpper = upperCasedCharacters;
-}
-else {
-  var includeUpper = "";
-}
-if (document.getElementById("include3").checked) {
-  var includeNumeric = numericCharacters;
-}
-else {
-  var includeNumeric = "";
-}
-if (document.getElementById("include4").checked) {
-  var includeSpecial = specialCharacters;
-} 
-else {
-  var includeSpecial = "";
-}
-}  */
 
-// Below I've created a function that adds my arrays into 'newArray'.
-// I've then used.join to add my own separator which is black because I was having issues with my password generation being full of commas.
-// My new array now being a string, it runs a for loop and selects random elements from my new array up to 40 characters. 
+
 
 function generatePassword() {
   var pass = '';
@@ -127,7 +116,6 @@ function generatePassword() {
   for (let i = 1; i <= 40; i++) {
       let char = Math.floor(Math.random()
           * str.length + 1);
-
       pass += str.charAt(char)
   }
 
